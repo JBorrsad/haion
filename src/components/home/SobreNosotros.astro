@@ -1,0 +1,64 @@
+---
+import { Image } from 'astro:assets'
+import { loadContent } from '@/lib/cms'
+import nosotrosImage from '@/assets/nosotros.png'
+
+const content = loadContent('home')
+const sn = content.sobreNosotros
+---
+
+<div class="max-w-7xl mx-auto px-6 sm:px-8 md:px-12">
+	<!-- Título de la sección -->
+	<h2 class="h2 mb-10 md:mb-14">{sn.title}</h2>
+
+	<!-- Texto completo - ocupa todo el ancho -->
+	<div class="text-body mb-12 md:mb-16">
+		{sn.intro.map((paragraph: string, index: number) => (
+			<p class:list={["lead mb-4", index === sn.intro.length - 1 && "font-medium"]}>
+				{paragraph}
+			</p>
+		))}
+	</div>
+
+	<!-- Layout: 2 columnas para tarjetas e imagen -->
+	<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-stretch">
+		<!-- Columna izquierda: textos sin tarjetas -->
+		<div class="flex flex-col justify-between gap-6">
+			<article class="flex-1 flex flex-col justify-center">
+				<h3 class="h3 mb-3">{sn.mision.title}</h3>
+				<p class="text-body">
+					{sn.mision.description}
+				</p>
+			</article>
+
+			<article class="flex-1 flex flex-col justify-center">
+				<h3 class="h3 mb-3">{sn.vision.title}</h3>
+				<p class="text-body">
+					{sn.vision.description}
+				</p>
+			</article>
+
+			<article class="flex-1 flex flex-col justify-center">
+				<h3 class="h3 mb-4">{sn.valores.title}</h3>
+				<ul class="text-body space-y-2">
+					{sn.valores.items.map((item: any) => (
+						<li>
+							<span class="font-medium text-yellow-700 dark:text-yellow-400">{item.label}</span> {item.description}
+						</li>
+					))}
+				</ul>
+			</article>
+		</div>
+
+		<!-- Columna derecha: imagen sin bordes redondeados -->
+		<div class="w-full h-full">
+			<Image
+				src={nosotrosImage}
+				alt={sn.imageAlt}
+				class="w-full h-full object-cover border border-gray-300 dark:border-gray-700"
+				widths={[400, 600, 800, 1000]}
+				sizes="(max-width: 1024px) 100vw, 50vw"
+			/>
+		</div>
+	</div>
+</div>

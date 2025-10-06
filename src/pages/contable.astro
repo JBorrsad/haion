@@ -1,0 +1,72 @@
+---
+import Layout from "@/layouts/Layout.astro"
+import SectionContainer from "@/components/shared/ui/SectionContainer.astro"
+import PageHero from "@/components/shared/ui/PageHero.astro"
+import ServiceBenefitCard from "@/components/shared/services/ServiceBenefitCard.astro"
+import ServiceCard from "@/components/shared/services/ServiceCard.astro"
+import ServiceCTA from "@/components/shared/services/ServiceCTA.astro"
+import RelatedServiceCard from "@/components/shared/services/RelatedServiceCard.astro"
+import { loadContent } from '@/lib/cms'
+import contableImage from '@/assets/contable.jpg'
+
+const content = loadContent('contable')
+---
+
+<Layout
+	title="Asesoría Contable - Haion Consulting"
+	description="Servicios de asesoría contable integral. Contabilidad, balances, cuentas anuales y gestión fiscal."
+>
+	<main>
+		<PageHero 
+			title={content.hero.title}
+			subtitle={content.hero.subtitle}
+			image={contableImage}
+		/>
+
+		<SectionContainer variant="plain">
+			<!-- Beneficios -->
+			<div class="mb-16">
+				<h2 class="h2 mb-8 md:mb-10 text-center">
+					{content.benefits.title}
+				</h2>
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+					{content.benefits.items.map((benefit: string) => (
+						<ServiceBenefitCard benefit={benefit} />
+					))}
+				</div>
+			</div>
+
+			<!-- Servicios principales -->
+			<div class="mb-16">
+				<h2 class="h2 mb-8 md:mb-10 text-center">
+					{content.services.title}
+				</h2>
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+					{content.services.items.map((service: any) => (
+						<ServiceCard title={service.title} description={service.description} />
+					))}
+				</div>
+			</div>
+			
+			<!-- CTA -->
+			<ServiceCTA title={content.cta.title} />
+
+			<!-- Otros servicios -->
+			<div>
+				<h2 class="h2 mb-8 md:mb-10 text-center">
+					{content.related.title}
+				</h2>
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+					{content.related.items.map((item: any) => (
+						<RelatedServiceCard
+							title={item.title}
+							description={item.description}
+							href={item.href}
+							icon={item.icon}
+						/>
+					))}
+				</div>
+			</div>
+		</SectionContainer>
+  </main>
+</Layout>
