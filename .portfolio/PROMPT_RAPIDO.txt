@@ -1,0 +1,29 @@
+═══════════════════════════════════════════════════════════════
+📋 PROMPT RÁPIDO PARA COPIAR Y PEGAR EN TU IA
+═══════════════════════════════════════════════════════════════
+
+Configura este proyecto para que aparezca en mi portfolio web automáticamente.
+
+Crea la carpeta `.portfolio/` con:
+
+1. Archivo `meta.json`:
+{
+  "publish": true,
+  "title": "[Analiza el proyecto y ponle un título descriptivo]",
+  "short": "[Genera descripción profesional de 1-2 líneas]",
+  "cover": "cover.jpg",
+  "order": [1-20 según importancia del proyecto],
+  "tags": ["[ELIGE DE: JAVA, SPRING, ANGULAR, REACT, KOTLIN, FIREBASE, MAPS, ANDROID, ROOM, TAILWIND, ASTRO]"],
+  "readmePath": "README.md"
+}
+
+2. Analiza el código y recomiéndame:
+   - Qué título y descripción usaste
+   - Qué tags elegiste (máximo 3-4)
+   - Qué tipo de imagen necesito para cover.jpg
+   - Qué número de "order" recomiendas (1=principal, 20=secundario)
+
+IMPORTANTE: Tags en MAYÚSCULAS, máximo 4 tags, orden 1-5 solo para proyectos destacados.
+
+═══════════════════════════════════════════════════════════════
+

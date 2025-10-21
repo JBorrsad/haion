@@ -1,0 +1,9 @@
+{
+  "publish": true,
+  "title": "Haion Consulting - Sitio Web Corporativo con CMS",
+  "short": "Sitio web corporativo de asesoría empresarial con CMS estático SEO-friendly, panel de administración, autenticación segura y deploy automático a GitHub Pages.",
+  "cover": "haionlanding.png",
+  "order": 4,
+  "tags": ["ASTRO", "TAILWIND"],
+  "readmePath": "README.md"
+}
