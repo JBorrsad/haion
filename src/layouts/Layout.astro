@@ -6,6 +6,9 @@ import "../styles/sections.css"
 
 import Header from "../components/shared/layout/Header.astro"
 import Footer from "../components/shared/layout/Footer.astro"
+import { inject } from "@vercel/analytics"
+
+inject()
 
 interface Props {
 	title: string
