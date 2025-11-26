@@ -3,5 +3,5 @@
   "description": "Sitio web corporativo de asesoría empresarial con CMS estático SEO-friendly, panel de administración, autenticación segura con Supabase y deploy automático a GitHub Pages. Incluye gestión de contenido, transiciones de página fluidas y diseño responsive.",
   "website": "https://haion-consulting.es",
   "coverImage": "haionlanding.png",
-  "tags": ["ASTRO", "TAILWIND"]
+  "tags": ["ASTRO", "TAILWIND", "SUPABASE"]
 }

@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Verify secret exists
         run: |
-          if [ -z "${{ secrets.PORTFOLIO_DISPATCH_TOKEN }}" ]; then
+          if [ -z "${{ secrets.GH_ALL_TOKEN }}" ]; then
             echo "❌ Error: PORTFOLIO_DISPATCH_TOKEN secret is not set"
             exit 1
           else
@@ -23,7 +23,7 @@ jobs:
         run: |
           response=$(curl -s -w "\n%{http_code}" -X POST \
             -H "Accept: application/vnd.github.v3+json" \
-            -H "Authorization: token ${{ secrets.PORTFOLIO_DISPATCH_TOKEN }}" \
+            -H "Authorization: token ${{ secrets.GH_ALL_TOKEN }}" \
             https://api.github.com/repos/JBorrsad/portfolio/dispatches \
             -d '{"event_type":"project-updated"}')
           
